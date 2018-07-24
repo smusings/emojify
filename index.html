@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Emojify!</title>
+      <style>
+          @import './css/index.css';
+      </style>
+    </head>
+    <body>
+      <h1 class="header">Emojify</h1>
+      <br>
+      <button id="emojify_button">Emojify</button>
+      <br>
+      <div class='main'>
+        <textarea rows=8 columns=250 id="emojify_text" class="textInput"></textarea>
+        &nbsp;
+        <textarea rows=8 columns=250 id="emojify_output"></textarea>
+      </div>
+      <script>
+          require('./js/require.js')
+      </script>
+    </body>
+  </html>

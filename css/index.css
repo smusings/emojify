@@ -1,0 +1,32 @@
+#main {
+    display: -webkit-flex;
+    -webkit-flex-flow: row-reverse wrap;
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+body {
+    background-color: #201D1D;
+    color: #F2EEED;
+    
+}
+
+h1 {
+    color: inherit;
+}
+
+textarea {
+    background-color: #363333;
+    color: #F7F6F5;
+    font-size: 20px;
+    width: 500px;
+}
+
+button {
+    background-color: #363333;
+    color: #F7F6F5;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0px;
+    size: 50px;
+}
