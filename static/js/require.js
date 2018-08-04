@@ -1,10 +1,21 @@
 const ipc = require('electron').ipcRenderer;
             
 var emojifyButton = document.getElementById('emojify_button');
+var input = document.getElementById('input_field');
 
-emojifyButton.addEventListener('click', function() {
-    ipc.once('emojifyResponse', function(event, response) {
-        document.getElementById('emojify_output').value = response;
-    });
-    ipc.send('emojifyAction', document.getElementById('emojify_text').value);
+
+input.addEventListener("keydown", function(e) {
+    if(e.keyCode === 13) {
+        emojify();
+    }
 });
+
+emojifyButton.addEventListener('click', emojify);
+
+function emojify() {
+    ipc.once('emojifyResponse', function(event, response) {
+        document.getElementById("emojify_output").value = response;
+    });
+    ipc.send('emojifyAction', input.value);
+}
+

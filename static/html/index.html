@@ -5,18 +5,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Emojify!</title>
       <style>
+          @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
           @import '../css/index.css';
       </style>
     </head>
     <body>
-      <h1 class="header">Emojify</h1>
+      <div class="center_div">
+          <h1 class="header">Emojify</h1>
+      </div>
       <br>
-      <button id="emojify_button">Emojify</button>
+      <div class="row row-input">
+        <input type="text" id="input_field" class="form-control form-control-dark col-md-10"></input>
+        <button id="emojify_button" class="emojify_button col-md-2">Emojify</button>
+      </div>
       <br>
-      <div class='main'>
-        <textarea rows=8 columns=250 id="emojify_text" class="textInput"></textarea>
-        &nbsp;
-        <textarea rows=8 columns=250 id="emojify_output"></textarea>
+      <div class="row row-input">
+          <textarea rows=8 columns=250 id="emojify_output" class="form-control-dark form-control"></textarea>
       </div>
       <script>
           require('../js/require.js')

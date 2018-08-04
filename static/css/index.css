@@ -1,14 +1,7 @@
-#main {
-    display: -webkit-flex;
-    -webkit-flex-flow: row-reverse wrap;
-    display: flex;
-    flex-flow: row-reverse wrap;
-}
-
+/*Core Classes*/
 body {
     background-color: #201D1D;
     color: #F2EEED;
-    
 }
 
 h1 {
@@ -29,4 +22,34 @@ button {
     box-shadow: none;
     border-radius: 0px;
     size: 50px;
+}
+
+/*Custom Classes*/
+#main {
+    display: -webkit-flex;
+    -webkit-flex-flow: row-reverse wrap;
+    display: flex;
+    flex-flow: row-reverse wrap;
+}
+
+.emojify_button {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.center_div {
+    text-align: center;
+}
+
+.row-input {
+    margin-left: 10vw;
+    margin-right: 10vw;
 }
