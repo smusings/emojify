@@ -29,7 +29,7 @@ function numberToString(number) {
         default:
             return "zero";
     }
-}
+};
 
 function fixPunctuation(payload) {
     return payload
@@ -41,18 +41,17 @@ function fixPunctuation(payload) {
             .replace('?', ' ? ')
             .replace('\'', ' \' ')
             .replace('\"', ' \" ');
-}
+};
 
 
 function emojify(payload) {
     var result = [];
     var post = "";
     var parts = fixPunctuation(payload).toLowerCase().split(/[\s]+/g);
+
     for(var i = 0; i < parts.length; i++) {
         var word = parts[i];
         var emojified;
-
-
 
         if(emoji.hasEmoji(word)) {
             emojified = emoji.get(word)
@@ -65,21 +64,33 @@ function emojify(payload) {
                 if (character.match(/^[.,:!?\'\"]/)) {
                     emojified = emojified + character + " ";
                 }
-                else if(emoji.hasEmoji(character)) {
+                else if (character.match(/^\d/)) {
+                    emojified = emojified + numberToString(character) + " ";
+                } else if(emoji.hasEmoji(character)) {
                     emojified = emojified+emoji.get(character) + " ";
                 } else {
                     emojified = emojified+emoji.get('regional_indicator_'+character) + " ";
                 }
             }
         }
-        if(post.length + emojified.length > 2000) {
-            result.push(post);
-            post = emojified;
 
+        if(post.length + emojified.length > 2000) {
+            if(post.length > 0) {
+                result.push(post);
+            }
+
+            if(emojified.length > 2000) {
+                var half = emojified.length/2;
+                result.push(emojified.substr(0, half));
+                emojified = emojified.substr(half+1);
+            }
+            
+            post = emojified;
         } else {
             post = post + " " + emojified;
         }
     }
-    result.push(post);
+    result.push(post); //Add any leftover emojies
+    console.log(result);
     return result
 }
